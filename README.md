@@ -1,6 +1,6 @@
 # VisionGallery
 
-base dir: ~/app/team33-21/visiongallery/
+base dir: ~/app/VisionGallery/visiongallery/
 
 images stored in /mnt/visiongallery_storage/media/
 
