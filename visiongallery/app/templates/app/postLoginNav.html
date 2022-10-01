@@ -1,0 +1,108 @@
+{% load static %}
+
+<!-- Post Login Navbar start -->
+
+<style>
+  .rotating-cog i{
+    animation:rotate 2s linear infinite;
+  }
+
+  @keyframes rotate{
+    100%{
+      transform: rotate(360deg);
+    }
+  }
+
+  .search-icon:hover i{
+    color: #fff;
+  }
+</style>
+    <nav class="container navbar fixed-top navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand me-2" href="">
+              <img
+                src="/static/VisionGallery.png"
+                height="30rem"
+                alt="Vision Gallery Logo"
+                loading="lazy"
+                style="margin-top: -1px;"
+              />
+            </a>
+            <a class="mr-4" style="text-decoration: none;"  href="/home"> <h5 class="mb-0"> <span> Vision Gallery </span></h5></a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <hr class="m-0 p-0">
+                <div class="navbar-nav">
+                    <a href="/home" class="nav-item nav-link active text-center">
+                      <i class="fa fa-home" aria-hidden="true"></i>
+                      <span class="tooltip1"> Home </span>
+                    </a>
+                    <a href="/upload" class="nav-item nav-link text-center">
+                      <i class="fa fa-upload" aria-hidden="true"></i>
+                      <span class="tooltip1"> Upload </span>
+                    </a>
+                    <a href="/gallery" class="nav-item nav-link text-center">
+                      <i class="fa fa-picture-o" aria-hidden="true"></i>
+                      <span class="tooltip1"> Gallery </span>
+                    </a>
+                    <a href="/maps" class="nav-item nav-link text-center" tabindex="-1">
+                      <i class="fa fa-map-o" aria-hidden="true"></i>
+                      <span class="tooltip1"> Maps </span>
+                    </a>
+                </div>
+                <div class="navbar-nav ms-auto">
+                  {% comment %} <form class="form-inline pr-3 ">
+                    <input class="m-1 form-control form-control-sm mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-sm btn-outline-dark mx-0 my-0 search-icon" type="submit">
+                      <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                  </form> {% endcomment %}
+
+                  <a class="nav-link active  text-center" href="/settings/account">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <span class="tooltip1"> Profile </span>
+                  </a>
+                  <a class="nav-link active rotating-cog text-center" href="/settings/general">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                    <span class="tooltip1"> Settings </span>
+                  </a>
+                  <a href="/logout" class="nav-link active text-center">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    <span class="tooltip1"> Log Out </span>
+                  </a>
+                </div>
+            </div>
+            
+        </div>
+    </nav>
+    
+    
+
+{% comment %} <nav class="navbar navbar-expand-lg navbar-light pb-0">
+
+      <!-- Items to the Right -->
+      <div class="d-flex">
+        <!-- Search Form-->
+        
+
+        <!-- Icons to the Right-->
+        <ul class="navbar-nav d-flex flex-row">
+          <!-- Settings Icon-->
+          <li class="nav-item me-3 me-lg-0">
+            
+          </li>
+    
+          <!-- Profile Icon-->
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link active" href="/settings/account">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <span class="tooltip1"> Profile </span>
+            </a>
+          </li>
+
+          
+
+</nav> {% endcomment %}
+<!-- Navbar End-->

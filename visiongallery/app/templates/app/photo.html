@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Gallery{% endblock title %}
+
+{% block navbar %}
+    {% include 'app/postLoginNav.html' %}
+{% endblock navbar %}
+
+{% block layout %}
+
+<div class="row">
+    <div class="text-center">
+        <a href="{% url 'gallery' %}" class="btn btn-dark m-2" >Back</a>
+        <a href="{% url 'delphoto' photo.photo_path %}" class="btn btn-danger m-2">Delete</a>
+    </div>
+
+    <div class="col-lg">
+        <div class="card p-4" style="width: 100%;">
+            <div class="text-center">
+                <img class="img-thumbnail mb-4" id="img-thumbnail-2" src="{{ MEDIA_URL }}{{ photo.photo_path.url }}" alt="Card image">
+            </div>
+            
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="row  m-2">
+                        <div class="col-sm">
+                            {% if photo.location.0.0 == null %}
+                            <p> <b>Location: </b> No location data found</p>
+                            {% else %}
+                            <p><b>Location: </b>{{ photo.location.0.0 }}</p>
+                            {% endif %}
+                        </div>
+                        <div class="col-sm">
+                            {% if photo.datetime != "" %}
+                            <p><b>Date: </b>{{ photo.datetime }}</p>
+                            {% else %}
+                            <p><b>Date: </b>{{ photo.upload_datetime }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    {% if userFontSizeText >= 26 %}
+                        {% block accessibility %}
+
+                        {% endblock accessibility %}
+                    {% else %}
+                        {% block accessibility2 %}
+                            
+                        {% endblock accessibility2 %}
+                    {% endif %}
+                    
+                    <div class="row m-2">
+                        <div class="col-sm">
+                            <h3> Emotions </h3>
+                            {% if categories.joy == 0 and categories.sorrow == 0 and categories.anger == 0 and categories.anger == 0 and categories.surprise == 0 and categories.blurred == 0  %}
+                                <p>Sorry! No Emotions found in this picture</p>
+
+                            {% endif %}
+                            {% if categories.joy >= 1 %}
+                            <p> Joy : {{ categories.joy }}
+                                <br>
+                                <progress id="file" value="{{categories.joy}}" max="5"> </progress>
+                            </p>
+                            {% endif %}
+
+                            {% if categories.sorrow >= 1 %}
+                            <p> Sorrow : {{ categories.sorrow }}
+                                <br>
+                                <progress id="file" value="{{categories.sorrow}}" max="5"> </progress>
+                            </p>
+                            {% endif %}
+                            
+                            {% if categories.anger >= 1 %}
+                            <p> Anger : {{ categories.anger }}
+                                <br>
+                                <progress id="file" value="{{categories.anger}}" max="5"> </progress>
+                            </p>
+                            {% endif %}
+                            
+                            {% if categories.surprise >= 1 %}
+                            <p> Surprise : {{ categories.surprise }}
+                                <br>
+                                <progress id="file" value="{{categories.surprise}}" max="5"> </progress>
+                            </p>
+                            {% endif %}
+                            
+                            {% if categories.blurred >= 1 %}
+                            <p> Blurred : {{ categories.blurred }}
+                                <br>
+                                <progress id="file" value="{{categories.blurred}}" max="5"> </progress>
+                            </p>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="col-sm">
+                            <h3> Properties </h3>
+                            <h7 style="background-color:rgba({{ prop_array.0 }}, {{ prop_array.1 }}, {{ prop_array.2 }}); color:transparent;">
+                                0000000000000000000000</h7>
+                            <br>
+                            Dominant Color:
+                            {% for prop in prop_array %}
+                            {{prop}}
+                            {% endfor %}
+                        </div>
+                        <div class="col-sm">
+                            <h3> Text </h3>
+                            {% if text_array.0 != null%}
+                            <p>{{ text_array.0 }}</p>
+                            {% else %}
+                                <p>Sorry! No text detected in this Image.</p>
+                            {% endif %}
+                        </div>
+
+                        {% if userFontSizeText >= 26 %}
+                            </div>
+                            <div class="row">
+                        {% endif %}
+                        <div class="col-sm">
+                            <h3> Labels </h3>
+                            {% if labels %}
+                                {% for label in labels %}
+                                <figcaption class="btn btn-sm btn-outline-dark mb-2"><p>{{label}}</p></figcaption>
+                                {% endfor %}
+                            {% else %}
+                                <p>Sorry! No labeld detected for this Image.</p>
+                            {% endif %}
+                            
+                        </div>
+                        <div class="col-sm">
+                            <h3> Objects </h3>
+                            {% if objects_array %}
+                                {%for elem in objects_array%}
+                                <figcaption class="btn btn-sm btn-outline-dark mb-2"><p>{{elem}}</p></figcaption>
+                                {% endfor %}
+                            {% else %}
+                                <p>Sorry! No objects detected for this Image.</p>
+                            {% endif %}
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="row m-2">
+                <h3>Share the photo with:</h3>
+                <p>{{ error_message }}</p>
+                <form method="get">
+                    {% csrf_token %}
+                    <p class="mb-1">Enter Username:</p>
+                    {{ sharePhoto }}
+                    <button class="btn btn-primary mt-2" type="submit">Submit</button>
+                </form>
+            </div>
+            </div>
+        </div>
+        
+</div>
+
+{% endblock layout %}

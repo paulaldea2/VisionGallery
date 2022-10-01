@@ -1,0 +1,342 @@
+html * {
+    /* font-size: 32px;
+    line-height: 1.625; */
+    color: #202013;
+    font-family: Nunito, sans-serif;
+}
+
+#mychart2{
+    width: 100px !important;
+    height: 100px !important;
+}
+
+.login-card{
+    margin-left: 30% !important;
+    margin-right: 30% !important;
+    background: var(--secondary-color);
+}
+
+@media only screen and (max-width: 1400px) {
+    .login-card{
+    margin-left: 25% !important;
+    margin-right: 25% !important;
+    background: var(--secondary-color);
+}
+}
+@media only screen and (max-width: 1200px) {
+    .login-card{
+    margin-left: 20% !important;
+    margin-right: 20% !important;
+    background: var(--secondary-color);
+}
+}
+@media only screen and (max-width: 1000px) {
+    .login-card{
+    margin-left: 15% !important;
+    margin-right: 15% !important;
+    background: var(--secondary-color);
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .login-card{
+    margin-left: 10% !important;
+    margin-right: 10% !important;
+    background: var(--secondary-color);
+}
+}
+
+@media only screen and (max-width: 600px) {
+    .login-card{
+        margin: 0 !important;
+    background: var(--secondary-color);
+}
+}
+@media only screen and (max-width: 400px) {
+    .login-card{
+        margin: 0 !important;
+    background: var(--secondary-color);
+}
+}
+
+#home-img{
+    height: 100vh;
+    max-height: 20rem !important;
+    max-width: 500px !important;
+}
+
+.btn-accessibility{
+    border: 1px solid rgb(201, 197, 197);
+    background: #fff;
+}
+
+@media only screen and (max-width: 400px) {
+    .dropzone{
+    min-width: 50px !important;
+    max-width: 250px !important;
+    }
+}
+
+.dropzone{
+    min-width: 50px !important;
+    max-width: 450px !important;
+}
+
+
+.container-fluid {
+    border-bottom: 0.5px solid rgb(194, 187, 187);
+}
+
+#img-thumbnail-2{
+	height: 100vh;
+	width: max-content;
+	border: 0px solid #fff !important;
+	border-radius: 0;
+	padding: 0;
+	background: var(--secondary-color);
+}
+
+#img-thumbnail-pfp {
+    height: 100vh !important;
+    width: 100% !important;
+    max-width: 180px !important;
+    max-height: 180px !important;
+    object-fit: cover;
+    border-radius: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 0 2px 5px 0px rgba(0,0,0,0.6);
+    transform: translatey(0px);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-5px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+}
+
+.img-thumbnail {
+    height: 12rem;
+    inline-size: 100%;
+    object-fit: cover;
+    border: 0px solid #fff !important;
+    border-radius: 0;
+    padding: 0;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.container{
+    background: var(--main-color) ;
+}
+
+.color-switcher{
+    padding: 3%;
+    background: var(--secondary-color);
+}
+
+.color-switcher h3{
+    color: black;
+    font-size: 2rem;
+    margin-bottom: 1%;
+    border-bottom: 5% solid black;
+    padding: 5px 0;
+    text-align: center;
+}
+
+.color-switcher .switcher-btn {
+    position: absolute;
+    top: 0; left: -75px;
+    color: var(--main-color);
+    background: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 35px;
+}
+
+
+.color-switcher .theme-buttons-container{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.color-switcher .theme-buttons-container .thme-buttons{
+    display: block;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin: 5px;
+    cursor: pointer;
+
+}
+
+.card{
+    background: var(--secondary-color);
+}
+
+.list-group-item{
+    margin: 0 !important;
+    padding: 0 !important;
+    border-spacing: 0 !important;
+    background: var(--secondary-color);
+}
+.list-group-item > a{
+    border-color: var(--secondary-color);
+    border-spacing: 0 !important;
+    background: var(--secondary-color);
+}
+
+.list-group{
+    margin: 0 !important;
+    padding: 0 !important;
+    border-color: var(--secondary-color);
+
+}
+.btn-dark{
+    
+    background: black !important;
+    
+}
+
+.btn-dark:hover{
+    background: rgb(41, 40, 40) !important;
+    
+}
+
+img{
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.clear { clear: both; height: 3.9em; }
+
+
+.dz {
+    border: dashed !important;
+    border-color: #ccc !important;
+    border-radius: 10px !important;
+}
+
+.dz:hover {
+    background-color: whitesmoke !important;
+}
+
+#image-caption {
+    margin-top: 1% !important;
+    margin-bottom: 2% !important;
+}
+
+.media-scroller{
+    display: grid;
+    gap: 1%;
+    grid-auto-flow: column;
+    grid-auto-columns: 21%;
+
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+
+}
+@media only screen and (max-width: 1200px) {
+    .media-scroller{
+    display: grid;
+    gap: 1%;
+    grid-auto-flow: column;
+    grid-auto-columns: 30%;
+
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+
+    }
+
+    .media-img{
+    inline-size: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    }
+}
+
+@media only screen and (max-width: 985px) {
+    .media-scroller{
+    display: grid;
+    gap: 1%;
+    grid-auto-flow: column;
+    grid-auto-columns: 40%;
+
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+
+    }
+
+    .media-img{
+    inline-size: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .media-scroller{
+    display: grid;
+    gap: 1%;
+    grid-auto-flow: column;
+    grid-auto-columns: 50%;
+
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+
+    }
+
+    .media-img{
+    inline-size: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    }
+}
+
+
+.media-element{
+    display: grid;
+    grid-template-rows: min-content;
+    gap: 1%;
+    background: var(--secondary-color);
+    border-radius: 1%;
+    margin-bottom: 3% !important;
+    padding: 2% !important;
+}
+
+.media-img{
+    inline-size: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.snaps-inline{
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: 1%;
+}
+
+
+.snaps-inline > * {
+    scroll-snap-align: start;
+}
+
+.card_img{
+    border: 0.5px white solid;
+    border-radius: 10px;
+    width: 410px;
+    height: 250px;
+}

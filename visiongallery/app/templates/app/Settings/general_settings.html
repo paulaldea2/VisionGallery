@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}General Settings{% endblock title %}
+
+{% block extrastyles %}
+<style>
+    #button-theme{
+		background-color: transparent;
+		border: none;
+	}
+    .selected-button{
+        border: 2px solid #0d6efd;
+        border-radius: 5px;
+        background-color: white;
+        height: 40px;
+    }
+    .{{ theme }}{
+        border: 1px dashed red !important;
+        border-radius: 50%;
+    }
+</style>
+{% endblock extrastyles %}
+
+{% block navbar %}
+    {% include 'app/postLoginNav.html' %}
+{% endblock navbar %}
+
+{% block layout %}
+<div class="row">
+    <div class="col-md-2">
+        <div class="card mb-2">
+            <div class="card-header text-center">
+                <h6>Settings</h6>
+            </div>
+            <ul class="list-group list-group-flush ">
+                <li class="list-group-item py-0 px-0">
+                    <a class="py-2 text-reset text-decoration-none btn btn-light text-center btn-block"
+                        href="{% url 'settingsGeneral'%}"> <p>General</p> </a>
+                </li>
+                <li class="list-group-item py-0 px-0">
+                    <a class="py-2 text-reset text-decoration-none btn btn-light text-center btn-block"
+                        href="{% url 'settingsAccount'%}">
+                        <p>Account</p>
+                    </a>
+                </li>
+                <li class="list-group-item py-0 px-0">
+                    <a class="py-2 text-reset text-decoration-none btn btn-light text-center btn-block"
+                        href="{% url 'settingsPassword'%}">
+                        <p>Password</p>
+                    </a>
+                </li>
+                <li class="list-group-item py-0 px-0">
+                    <a class="py-2 text-reset text-decoration-none btn btn-light text-center btn-block"
+                        href="{% url 'settingsSecurity'%}">
+                        <p>Security</p>
+                    </a>
+                </li>
+                <li class="list-group-item py-0 px-0">
+                    <a class="py-2 text-reset text-decoration-none btn btn-light text-center btn-block"
+                        href="{% url 'settingsStatistics'%}">
+                        <p>Statistics</p>
+                    </a>
+                </li>
+                <li class="list-group-item py-0 px-0">
+                    <a class="py-2 text-reset text-decoration-none btn btn-light text-center btn-block"
+                        href="{% url 'settingsAccessibility'%}">
+                        <p>Accessibility</p>
+                    </a>
+                </li>
+                <li class="list-group-item py-0 px-0">
+                    <a class="py-2 text-reset text-decoration-none btn btn-light text-center btn-block"
+                        href="{% url 'settingsApi'%}">
+                        <p>API</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <div class="color-switcher mb-2">
+            <h5>Colour Theme</h5>
+
+            <p>Test and save your colour theme by clicking the buttons below.</p>
+
+            <form method="post">
+                {% csrf_token %}
+                <div class="theme-buttons-container">
+                    <button class="button is-danger purple" name="theme_option_button" id="button-theme" value="purple">
+                        <span class="thme-buttons" data-color="#f4dcff" sec-color="#fbf0ff" style="background: #f4dcff;"></span><p hidden>purple</p>
+                    </button>
+                    
+                    <button class="button is-danger blue" name="theme_option_button" id="button-theme" value="blue">
+                        <span class="thme-buttons" data-color="#b4e1ff" sec-color="#d6edfc" style="background: #b4e1ff;"></span><p hidden>light blue</p>
+                    </button>
+
+                    <button class="button is-danger orange" name="theme_option_button" id="button-theme" value="orange">
+                        <span class="thme-buttons" data-color="#ffe5bc" sec-color="#fff5e4" style="background: #ffe5bc;"></span><p hidden>yellow</p>
+                    </button>
+
+                    <button class="button is-danger green" name="theme_option_button" id="button-theme" value="green">
+                        <span class="thme-buttons" data-color="#b1ffd1" sec-color="#e0ffec" style="background: #b1ffd1;"></span><p hidden>green</p>
+                    </button>
+                    
+                    <button class="button is-danger peach" name="theme_option_button" id="button-theme" value="peach">
+                        <span class="thme-buttons" data-color="#ffd9d4" sec-color="#feeeec" style="background: #ffd9d4;"></span><p hidden>orange</p>
+                    </button>
+
+                    <button class="button is-danger pink" name="theme_option_button" id="button-theme" value="pink">
+                        <span class="thme-buttons" data-color="#ffd4e8" sec-color="#ffebf4" style="background: #ffd4e8;"></span><p hidden>red</p>
+                    </button>
+
+                    <button class="button is-danger blue2" name="theme_option_button" id="button-theme" value="blue2">
+                        <span class="thme-buttons" data-color="#abe4f2" sec-color="#ddf8ff" style="background: #abe4f2;"></span><p hidden>deep blue</p>
+                    </button>
+                </div>
+            </form>
+            
+            <br>
+            <br>
+            <h5>Gallery Image Order</h5>
+            <p> You may change the way your gallery is ordered by choosing one of the options below. </p>
+
+                <form method="get">
+					{% csrf_token %}
+					<div class="buttons has-addons">
+                        {% if user_settings.gallery_order_choice == 'upload_datetime' %}
+                            <button class="btn btn-primary" name="gallery_option_button" value="upload_datetime">
+                                Upload Time
+                            </button>
+                            <button class="btn btn-sm btn-outline-primary" name="gallery_option_button" value="datetime">
+                                Chronological Order
+                            </button>
+                        {% else %}
+                            <button class="btn btn-sm btn-outline-primary" name="gallery_option_button" value="upload_datetime">
+                                Upload Time
+                            </button>
+                            <button class="btn btn-primary" name="gallery_option_button" value="datetime">
+                                Chronological Order
+                            </button>
+                        {% endif %}
+                    </div> 
+                </form>
+        </div>
+    </div>
+    
+</div>
+
+{% endblock layout %}

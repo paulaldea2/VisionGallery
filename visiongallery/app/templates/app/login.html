@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Log In{% endblock title %}
+
+{% block layout %}
+<article>
+    <div class="row container m-0">
+        <div class="col-sm text-center login-card">
+            <br>
+                <h2> Log In here </h2>
+                <p>{{ error_message }}</p>
+                <form method="get" enctype="multipart/form-data" class="text-center">
+                        <div class="text-center fst-italic fw-light fs-6">
+                            {% csrf_token %}
+                            {{ login }}
+                        </div>
+                        <div class="text-center"><br>
+                            <a href="/recover_account/step_1">Forget Your Password?</a><br><br>
+                            <button class="btn btn-primary" type="submit">
+                                <p>Login</p>
+                            </button>
+                        </div>
+                </form>
+                <br>
+        </div>
+        
+    </div>
+</article>
+{% endblock layout %}

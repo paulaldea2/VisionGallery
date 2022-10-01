@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block extrastyles %}
+{% endblock extrastyles %}
+
+{% block navbar %}
+    {% include 'app/postLoginNav.html' %}
+{% endblock navbar %}
+
+{% block layout %}
+
+<body class="container">
+    {% if all_photos %}
+
+        <h2 >Most Recent Photos</h2>
+        
+        <div class="media-scroller snaps-inline">
+        {% for photo in all_photos %}
+            <div class="media-element">
+                <a href="{% url 'photo' photo.photo_path %}">
+                    <img class="media-img" src="{{ MEDIA_URL }}{{ photo.photo_path.url }}" alt="Image">
+                </a>
+                {% if photo.datetime != "" %}
+                    <p id="image-caption" class="media-title text-center fst-italic fw-light ">{{ photo.datetime }}</p>   
+                {% else %}
+                    <p id="image-caption" class="media-title text-center fst-italic fw-light ">{{ photo.upload_datetime }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+        </div>
+        <br>
+        <br>
+    {% else %}
+        <h4>No Images Found! <a href="{% url 'TestPhoto'%}">Upload</a> Images to see recent Images</h4>
+        <br>
+    {% endif %}
+
+    {% if shared_photos %}
+        <h2 class="lead">Shared Photos</h2>
+        <div class="media-scroller snaps-inline">
+        {% for photo in shared %}
+            <div class="media-element">
+                <a href="{% url 'photo' photo.photo_path %}">
+                    <img class="media-img" src="{{ MEDIA_URL }}{{ photo.photo_path.url }}">
+                </a>
+                {% if photo.datetime != "" %}
+                    <p id="image-caption" class="media-title text-center fst-italic fw-light ">{{ photo.datetime }}</p>
+                {% else %}
+                    <p id="image-caption" class="media-title text-center fst-italic fw-light ">{{ photo.upload_datetime }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+        </div>
+        <br>
+        <br>
+    {% endif %}
+
+    <div class="container">
+        {% if emotion_stat_enabled %}
+        <div class="row text-center">
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col">
+                <h2>Overall Emotion Statistics</h2>
+                <br>
+                <canvas id="myChart" width="200" height="100" aria-label="Hello ARIA World" role="img">
+                    <p>Fallback Content</p>
+                </canvas>
+                <p class="pl-5 ml-1">Total number of images: {{ emotion_all }}</p>
+            </div>
+
+            <div class="col-sm-2"></div>
+            
+        </div>
+        {% endif %}
+
+        <br>
+        {% if location_stat_enabled %}
+        <div class="row text-center">
+            <div class="col-sm-3">
+
+            </div>
+            <div class="col">
+                <h2>Overall Location Statistics</h2><br>
+                <canvas id="myChart2" aria-label="Hello ARIA World" role="img">
+                    <p>Fallback Content</p>
+                </canvas>
+                <p class="pl-5 ml-1">Total number of images with location data: {{ location_all }}</p>
+            </div>
+            <div class="col-sm-3"></div>
+            
+        </div>
+        {% endif %}
+        </div>
+    </article>
+    <script>
+        {% if emotion_stat_enabled %}
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [{% for emotion in emotions %} "{{emotion}}", {% endfor %}],
+                datasets: [{
+                    label: '% of Images',
+                    data: [{% for value in emotionValues %} {{value}}, {% endfor %}],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+        });
+        {% endif %}
+
+        {% if location_stat_enabled %}
+
+        const ctx2 = document.getElementById('myChart2').getContext('2d');
+            const myChart2 = new Chart(ctx2, {
+                type: 'pie',
+                data: {
+                    labels: [{% for key, value in location_stat.items %} "{{key}}", {% endfor %}],
+            datasets: [{
+                label: '% of Images',
+                data: [{% for key, value in location_stat.items %} {{ value }}, {% endfor %}],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                        borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        {% endif %}
+    </script>
+</body>
+
+{% endblock layout %}

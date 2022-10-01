@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Maps{% endblock title %}
+
+
+{% block navbar %}
+    {% include 'app/postLoginNav.html' %}
+{% endblock navbar %}
+
+{% block tts %}
+{% endblock tts %}
+
+{% block footer %}
+{% endblock footer %}
+
+{% block scripts %}
+<style type="text/css">
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    #map {
+      height: 95%;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+    html,
+    body {
+      height: 95%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+<script>
+    function initMap() {
+    const locations = {{location_array|safe}}
+
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 3,
+        center: {lat:55.3781,lng: 3.4360},
+    });
+    
+    var infowindow = new google.maps.InfoWindow();
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {  
+        marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][2], locations[i][3]),
+        map: map
+        });
+        
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+            infowindow.setContent(locations[i][1].link("/photo/" + locations[i][0]));
+            infowindow.open(map, marker);
+        }
+        })(marker, i));
+        }
+    }
+</script>
+
+    <div id="map"></div>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIx8O1LEeAgHwJwbcnDOkwTWP8oirJM5w&callback=initMap&v=weekly"
+      async
+    ></script>
+{% endblock scripts %}

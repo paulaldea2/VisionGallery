@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Register{% endblock title %}
+
+{% block layout %}
+    <div class="row container m-0">
+        <div class="col-sm text-center login-card">
+            <br>
+                <h2> Sign Up here </h2>
+                <p>{{ error_message }}</p>
+                <form method="get" enctype="multipart/form-data" class="text-center">
+                        <div class="text-center fst-italic fw-light fs-6">
+                            {% csrf_token %}
+                            {{ regist }}
+                        </div>
+                        <div class="text-center"><br>
+                            <p> By Signing Up, you are agreeing to our <a href="/privacy">GDPR Privacy Policy</a>.</p>
+                            <button class="btn btn-primary" type="submit">Register</button>
+                            <br>
+                            <br>
+                            <a href="/password_guide">How do I create a strong password?</a>
+                        </div>
+                </form>
+                <br>
+        </div>
+    </div>
+{% endblock layout %}

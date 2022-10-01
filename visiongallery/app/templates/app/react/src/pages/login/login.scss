@@ -1,0 +1,70 @@
+.login {
+  background-color: #E1E9FF;
+  min-height: 100vh;
+  header {
+    height: 84px;
+    //padding: 0 40px;
+    .header-box{
+      width: 1200px;
+    }
+    img {
+      //width: 400px;
+    }
+
+    .ant-btn-primary {
+
+      border-color: #2C3454;
+      background: #2C3454;
+
+    }
+  }
+  .center-box {
+    width: 1200px;
+  }
+
+
+
+  .content-box {
+    padding: 50px 0 0;
+
+    .form-box {
+      .p-1 {
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+      .p-2 {
+        font-size: 20px;
+      }
+
+      input {
+        height: 40px;
+        border: 1px solid #666;
+      }
+
+      .go-to {
+        font-size: 16px;
+        margin-top: 5px;
+        ._{
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+
+      .ant-btn-primary {
+
+        border-color: #2C3454;
+        background: #2C3454;
+
+      }
+    }
+
+    .right-img {
+      width: 600px;
+    }
+  }
+
+  .footer{
+
+  }
+}

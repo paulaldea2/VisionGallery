@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}GDPR Policy{% endblock title %}
+
+{% block layout %}
+
+<h3 class="text-center"> VisionGallery Privacy Policy  </h3><br>
+
+<div class="d-gridgap-1 px-5">
+
+    <div class="card p-4 m-2 border">
+        <p><strong>What kinds of information do we collect and store? </strong></p>
+        <p>
+            As VisionGallery; to provide better services to all our users, we store basic 
+            information -information you provide to us and information we gather from the 
+            data you have given us.  
+        </p>
+
+        <div class=" mx-4">
+            <p><strong>1. Personal data - Information You Provide </strong></p>
+
+            <div class="">
+                <p class="mb-0"><strong>a. Email - Username </strong></p>
+                <p class="ml-3">
+                    We store the email address/username you provide during the 
+                    registration for 	login and recovering your account purposes.  
+
+                    Your email address is not being used for marketing purposes; we 
+                    will not share 	this information with third-parties or spam! 
+                </p>
+
+                <p class="mb-0"><strong>b. Phone Number  </strong></p>
+                <p class="ml-3">
+                    We only store your phone number if you choose to. We have an 
+                    additional optional security layer where we implement 2-Factor 
+                    Authentication, therefore require your phone number. 
+                    Your phone number will not be shared with third parties under 
+                    any circumstances. 
+                </p>
+                <p class="mb-0"><strong>c. Password </strong></p>
+                <p class="ml-3">
+                    We store your password with great caution! VisionGallery only 
+                    accepts strong passwords and stores them securely by using the 
+                    latest and most complex encryption algorithms. Once you enter 
+                    your secure password, it is instantly hashed and salted using 
+                    the SHA algorithm before being stored on the database. So, we 
+                    cannot access them in a readable format or share with third parties. 
+                </p>
+            </div>
+            <p>
+                Please note that our website uses TLS/SSL encryption – all data 
+                transferred between our service and the users are encrypted. 
+            </p>
+
+
+
+            <p><strong>2. Subsequent Data - Information We Gather </strong></p>
+
+            <div class="">
+                <p class="mb-0"><strong>a. Metadata of the photos uploaded </strong></p>
+                <p class="ml-3">
+                    In order to fulfil our features, we extract certain tags of the metadata of 
+                    the photo you choose to benefit from our services with. We only extract; 
+                    the “date-	time” data to organise your gallery chronologically and provide 
+                    you with the date-time of the photo when it was taken – instead of when 
+                    you have uploaded it – and the “geographical” data to present your photos 
+                    on a world map.
+                    Any other metadata not necessary for our services is being removed and not stored 
+                    on our servers, such as the device information. 
+                </p>
+                <p class="mb-0"><strong>b. Data we derive from the uploaded photos 
+                    using Google Vision API  </strong>
+                </p>
+                <p class="ml-3">
+                    Our main service is to organise our users’ photos in a certain way and 
+                    present this to them in an efficient and effective way. The data driven 
+                    from Google Vision API is the leading factor of our service upon many 
+                    others (Please see our welcome page to get more detailed information 
+                    on our services). We store this data on our database to organise your 
+                    gallery and provide this information for you.  
+                </p>
+            </div>
+
+            <p>
+                Your subsequent data will be used to derive statistics to present to you, 
+                upon your choice. The options you do not wish will not be further calculated 
+                or stored with the old results.  
+            </p>
+            <p>
+                Please note that these statistics are only driven to present to you. This 
+                information will not be shared with other users or third parties.  
+            </p>
+
+
+        </div>
+    </div>
+
+    <div class="card p-4 m-2 border">
+        <p><strong>How long do we store your data?  </strong></p>
+        <p>
+            Your personal data will be stored as long as you keep your account.
+            The subsequent data will be stored as long as you keep the source image. In the event of a deletion, all data related to the deleted file will be destroyed immediately.
+            If you choose to delete your account, all your personal and subsequent data will be deleted forever immediately.  
+        </p>
+    </div>
+
+    <div class="card p-4 m-2 border">
+        <p><strong>What kinds of information do we *NOT* collect and store? </strong></p>
+        <p>
+            As VisionGalley, we are only concerned with the information that is 
+            required for us to perform our tasks. Any data that is not related to 
+            our features is not collected, extracted, driven or stored.
+            Unlike most services, as VisionGallery, we do not track your location. Likewise, 
+            we do not keep a log of your activity or use ML for marketing purposes.  
+        </p>
+    </div>
+
+    <div class="card p-4 m-2 border">
+        <p><strong>Our Cookie Policy </strong></p>
+        <p>
+            Our website uses “session” cookies. Cookies are small text files that are placed 
+            on your computer by the websites that you visit. These text files are 
+            mainly used for authentication. In VisionGallery, we are using cookies
+		    to keep you logged in, save and honor your preferences, for site features
+		    and services and for security, site and product integrity. 
+            We are cleaning the non-necessary cookies in every page of the website. So
+            all cookies are dropped after you leave the page associated to that cookie.
+        </p>
+    </div>
+
+    <div class="card p-4 m-2 border">
+        <p><strong>How will we notify you of changes to this Policy? </strong></p>
+        <p>
+            Any change to our privacy policy will be notified with email notification.
+            We appreciate hearing any comments, questions or concerns that you may have about
+            our policies and practices. 
+            Please contact our Privacy Team at <u>privacy.visiongallery@gmail.com</u>.
+        </p>
+    </div>
+</div>
+
+{% endblock layout %}

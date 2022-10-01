@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Welcome{% endblock title %}
+
+{% block layout %}
+    <div>
+        <h3 style="text-align:center;">Welcome to the VisionGallery!</h3>
+        <p style="text-align:center;">3+ MONTHS AND COUNTING OF HARD WORK TO BRING DREAM TO LIFE</p>
+    </div>
+
+
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item text-center">
+                <img style="height: 50rem;" src="/static/HomeCarousel/2of3.jpg" class=" img-thumbnail" alt="...">
+            </div>
+            <div class="carousel-item text-center active">
+                <img style="height: 50rem;" src="/static/HomeCarousel/4.jpg" class=" img-thumbnail" alt="...">
+            </div>
+            <div class="carousel-item text-center">
+                <img style="height: 50rem;" src="/static/HomeCarousel/3of3.jpg" class=" img-thumbnail" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon btn btn-secondary" aria-hidden="true"></span>
+            <span class="visually-hidden ">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon btn btn-secondary" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <br>
+
+    <div>
+        <h2 style="text-align:center;">BUILT FOR PHOTOGRAPHERS</h2>
+        <p style="text-align:center;">
+            VisionGallery is a powerful app built to allow photographers organise their image stock using keywords and other image metadata e.g. image location, date taken, image colours etc. When creating this project we wanted to help all types of users manage their pictures with additional data which was achieved via the use of AI to allow users to detect colours, objects and emotions.
+        </p>
+
+
+        <div class="row mt-5 mb-5">
+            <div style="text-align:center;" class="col-sm mb-2">
+                <div class="card align-items-center" id="home-card">
+                    <img src="/static/Home/1of3.png" id="home-img" alt="Vision Gallery Logo" loading="lazy" />
+                    <div class="card-body">
+                        <figcaption>Example of a picture uploaded by one our users to detect the people
+                            in the picture and evaluate their
+                            emotions using AI.</figcaption>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center;" class="col-sm mb-2">
+                <div class="card align-items-center" id="home-card">
+                    <img src="/static/Home/2of3.png" id="home-img" alt="Vision Gallery Logo" loading="lazy" />
+                    <div class="card-body">
+                        <figcaption>Analysis of face 2 clearly
+                            shows the person appears to be joyful as shown above.
+                            However the AI is not 100% certain of this analysis.</figcaption>
+                    </div>
+                </div>
+                
+                    
+            </div>
+            <div style="text-align:center;" class="col-sm mb-2">
+                <div class="card align-items-center" id="home-card">
+                    <img src="/static/Home/3of3.png" id="home-img" alt="Vision Gallery Logo" loading="lazy" />
+                    <div class="card-body">
+                        <figcaption>Analysis of face 3 clearly
+                            shows the person appears to be joyful
+                            as shown above. However the AI is more confident with this
+                            analysis.</figcaption>
+                    </div>
+                </div>
+                    
+            </div>
+        </div>
+        <div class="row">
+            <div style="text-align:center;" class="col ml-5 mr-5">
+                
+            </div>
+            <div style="text-align:center;" class="col ml-5 mr-5">
+                
+            </div>
+            <div style="text-align:center;" class="col ml-5 mr-5">
+                
+            </div>
+        </div>
+
+        
+    </div>
+
+    <div>
+        
+    </div>
+    
+
+{% endblock %}

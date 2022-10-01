@@ -1,0 +1,15 @@
+version: '3'
+services:
+    gnrc:
+        build: .
+        image: gnrc:latest
+        ports:
+          - 8000:8000
+        volumes:
+          - /mnt/visiongallery_storage/media/:/mnt/visiongallery_storage/media/
+        environment:
+          - "VG_NOREPLY_EMAIL_PASSWORD=${VG_NOREPLY_EMAIL_PASSWORD}"
+          - "VG_KS_PASSWORD=${VG_KS_PASSWORD}"
+          - "VG_TWILIO_SID=${VG_TWILIO_SID}"
+          - "VG_TWILIO_TOKEN=${VG_TWILIO_TOKEN}"
+          - "SECRET_KEY=${SECRET_KEY}"

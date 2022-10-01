@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Rest-API Settings{% endblock title %}
+
+{% block navbar %}
+    {% include 'app/postLoginNav.html' %}
+{% endblock navbar %}
+
+{% block layout %}
+<div class="row">
+    <div class="col-md-2">
+        <div class="card mb-2">
+            <div class="card-header text-center">
+                <h6>Settings</h6>
+            </div>
+            <ul class="list-group list-group-flush ">
+                <li class="list-group-item py-0 px-0">
+                    <a class="py-2 text-reset text-decoration-none btn btn-light text-center btn-block"
+                        href="{% url 'settingsGeneral'%}"> <p>General</p> </a>
+                </li>
+                <li class="list-group-item py-0 px-0">
+                    <a class="py-2 text-reset text-decoration-none btn btn-light text-center btn-block"
+                        href="{% url 'settingsAccount'%}">
+                        <p>Account</p>
+                    </a>
+                </li>
+                <li class="list-group-item py-0 px-0">
+                    <a class="py-2 text-reset text-decoration-none btn btn-light text-center btn-block"
+                        href="{% url 'settingsPassword'%}">
+                        <p>Password</p>
+                    </a>
+                </li>
+                <li class="list-group-item py-0 px-0">
+                    <a class="py-2 text-reset text-decoration-none btn btn-light text-center btn-block"
+                        href="{% url 'settingsSecurity'%}">
+                        <p>Security</p>
+                    </a>
+                </li>
+                <li class="list-group-item py-0 px-0">
+                    <a class="py-2 text-reset text-decoration-none btn btn-light text-center btn-block"
+                        href="{% url 'settingsStatistics'%}">
+                        <p>Statistics</p>
+                    </a>
+                </li>
+                <li class="list-group-item py-0 px-0">
+                    <a class="py-2 text-reset text-decoration-none btn btn-light text-center btn-block"
+                        href="{% url 'settingsAccessibility'%}">
+                        <p>Accessibility</p>
+                    </a>
+                </li>
+                <li class="list-group-item py-0 px-0">
+                    <a class="py-2 text-reset text-decoration-none btn btn-light text-center btn-block"
+                        href="{% url 'settingsApi'%}">
+                        <p>API</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+		<div class="card h-100">
+            <div class="card-body pl-4 pr-4">
+                <h6>API Token Generator</h6>
+                <div class = "m-3">
+                    {% if user_token %}
+                        <p>Token =  {{ user_token}}</p>
+                        <p>Please <b>DO NOT SHARE</b> this token with anyone.</p>
+                    {% else %}
+                        <p>You do not currently have a token. Click below to generate one.</p>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="buttons has-addons">
+                                <button class="btn btn-danger" name="token_button" value="generate"><p>Generate</p></button>
+                            </div>
+                        </form>
+                    {% endif %}
+                </div>
+			</div>
+		</div>
+    </div>
+</div>
+{% endblock layout %}
