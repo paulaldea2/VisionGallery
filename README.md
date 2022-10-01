@@ -4,7 +4,7 @@ base dir: ~/app/team33-21/visiongallery/
 
 images stored in /mnt/visiongallery_storage/media/
 
-To Run Server Using Docker (~/app/team33-21/):
+To Run Server Using Docker (~/app/VisionGallery-21/):
 --------------------------------------
 1. docker-compose down
 2. docker-compose build
